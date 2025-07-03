@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: olsen-cole
+      url-base: https://github.com/olsen-cole/zmk-config-macrocard
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,6 +16,9 @@ manifest:
       revision: main
     - name: zmk-smart-toggle
       remote: caksoylar
+      revision: main
+    - name: zmk-config-macrocard
+      remote: olsen-cole
       revision: main
   self:
     path: config
