@@ -1,0 +1,12 @@
+file_format: "1"
+id: macrocard
+name: Macrocard
+type: shield
+url: https://github.com/olsen-cole/macrocard
+requires: [nice_nano_v2]
+features:
+	- keys
+	- encoder
+siblings:
+  - macrocard_productivity
+  - macrocard_music

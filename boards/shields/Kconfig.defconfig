@@ -1,0 +1,25 @@
+if SHIELD_MACROCARD_PRODUCTIVITY
+
+config ZMK_KEYBOARD_NAME
+    default "Macrocard Productivity"
+
+config ZMK_USB
+    default y
+
+config ZMK_BLE
+    default y
+
+endif # SHIELD_MACROCARD_PRODUCTIVITY
+
+if SHIELD_MACROCARD_MUSIC
+
+config ZMK_KEYBOARD_NAME
+    default "Macrocard Music"
+
+config ZMK_USB
+    default y
+
+config ZMK_BLE
+    default y
+
+endif # SHIELD_MACROCARD_MUSIC
