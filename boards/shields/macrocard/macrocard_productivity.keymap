@@ -5,6 +5,10 @@
 
 / {
     behaviors {
+        bt: bt {
+            compatible = "zmk,behavior-bluetooth";
+            #binding-cells = <1>;
+        };
         // Window switcher behavior using smart toggle
         win_switch: win_switch {
             compatible = "zmk,behavior-smart-toggle";
@@ -27,7 +31,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&bt>, <&kp>;
+            bindings = <&bt BT_CLR>, <&kp ENTER>;
         };
         
         // Window switcher encoder behavior
@@ -90,7 +94,7 @@
                 &trans          // Switch 1 - transparent
                 &trans          // Switch 2 - transparent
                 &trans          // Switch 3 - transparent
-                &enc_ht BT_CLR ENTER     // Encoder switch - hold for BT clear
+                &enc_ht 0 0     // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;

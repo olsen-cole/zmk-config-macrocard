@@ -4,13 +4,17 @@
 
 / {
     behaviors {
+        bt: bt {
+            compatible = "zmk,behavior-bluetooth";
+            #binding-cells = <1>;
+        };
         // Hold/tap behavior for encoder switch - tap for mute, hold for BT clear
         enc_ht: enc_ht {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&bt>, <&kp>;
+            bindings = <&bt BT_CLR>, <&kp C_MUTE>;
         };
     };
 
@@ -23,7 +27,7 @@
                 &kp C_PREV      // Switch 1 - Previous track
                 &kp C_PP        // Switch 2 - Play/Pause
                 &kp C_NEXT      // Switch 3 - Next track
-                &enc_ht BT_CLR C_MUTE     // Encoder switch - tap for mute, hold for BT clear
+                &enc_ht 0 0     // Encoder switch - tap for mute, hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
