@@ -1,4 +1,4 @@
-name: zmk-keyboard-macrocard
+name: zmk-config-macrocard
 build:
   settings:
     board_root: .
