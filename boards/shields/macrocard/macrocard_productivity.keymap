@@ -2,13 +2,14 @@
 // #include <behaviors/smart_toggle.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <behaviors.dtsi>
 
 / {
     behaviors {
-        bt: bt {
-            compatible = "zmk,behavior-bluetooth";
-            #binding-cells = <1>;
-        };
+        // bt: bt {
+        //     compatible = "zmk,behavior-bluetooth";
+        //     #binding-cells = <1>;
+        // };
         // Window switcher behavior using smart toggle
         win_switch: win_switch {
             compatible = "zmk,behavior-smart-toggle";
