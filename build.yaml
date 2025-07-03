@@ -21,7 +21,7 @@
 include:
   - board: nice_nano_v2
     shield: macrocard_productivity
-    cmake-args: -DZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}"
+#    cmake-args: -DZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}"
   - board: nice_nano_v2
     shield: macrocard_music
-    cmake-args: -DZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}"
+#    cmake-args: -DZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}"
