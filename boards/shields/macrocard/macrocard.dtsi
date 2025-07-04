@@ -1,10 +1,6 @@
-#include <dt-bindings/zmk/matrix_transform.h>
-
 / {
     chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
-        // zmk,physical-layout = &physical_layout0;
+        zmk,kscan = &default_kscan;
     };
 
     aliases {
@@ -30,14 +26,14 @@
         };
     };
 
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <4>;
-        rows = <1>;
-        map = <
-            RC(0,0) RC(0,1) RC(0,2) RC(0,3)
-        >;
-    };
+    // default_transform: keymap_transform_0 {
+    //     compatible = "zmk,matrix-transform";
+    //     columns = <4>;
+    //     rows = <1>;
+    //     map = <
+    //         RC(0,0) RC(0,1) RC(0,2) RC(0,3)
+    //     >;
+    // };
 
     // physical_layout0: physical_layout0 {
     //     compatible = "zmk,physical-layout";
@@ -51,17 +47,19 @@
     //         ;
     // };
 
-    kscan0: kscan {
+    default_kscan: kscan {
         compatible = "zmk,kscan-gpio-direct";
+        label = "default_kscan"
         wakeup-source;
         
-        input-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 1 on P1.11
-                      <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 2 on P1.13
-                      <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 3 on P1.15
-                      <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;   // Encoder switch
+        input-gpios = 
+            <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 1 on P1.11
+            <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 2 on P1.13
+            <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 3 on P1.15
+            <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;   // Encoder switch
     };
 
-    encoder: encoder {
+    center_encoder: encoder_center {
         compatible = "alps,ec11";
         a-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // Pin A on P1.04
         b-gpios = <&gpio1 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // Pin B on P1.06
@@ -70,11 +68,6 @@
     };
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&encoder>;
-        triggers-per-rotation = <20>;
+        sensors = <&center_encoder>;
     };
-};
-
-&encoder {
-    status = "okay";
 };

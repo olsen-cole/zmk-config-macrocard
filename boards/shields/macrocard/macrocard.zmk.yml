@@ -3,7 +3,7 @@ id: macrocard
 name: Macrocard
 type: shield
 url: https://github.com/olsen-cole/macrocard
-requires: [nice_nano_v2]
+requires: [pro_micro]
 features:
 	- keys
 	- encoder
