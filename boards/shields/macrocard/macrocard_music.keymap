@@ -30,7 +30,7 @@
                 &kp C_PREV      // Switch 1 - Previous track
                 &kp C_PP        // Switch 2 - Play/Pause
                 &kp C_NEXT      // Switch 3 - Next track
-                &enc_ht         // Encoder switch - tap for mute, hold for BT clear
+                &enc_macro         // Encoder switch - tap for mute, hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
