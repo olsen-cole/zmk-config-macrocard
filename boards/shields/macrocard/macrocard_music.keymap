@@ -9,9 +9,9 @@
         enc_macro: enc_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp C_MUTE>,
-                       <&macro_tap &bt BT_CLR>,
-                       <&macro_release &kp C_MUTE>;
+            bindings = <&macro_press &bt BT_CLR>,
+                       <&macro_tap &kp C_MUTE>,
+                       <&macro_release &bt BT_CLR>;
             tap-ms = <40>;
             wait-ms = <30>;
         };
