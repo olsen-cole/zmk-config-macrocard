@@ -12,8 +12,8 @@
             bindings = <&macro_press &kp C_MUTE>,
                        <&macro_tap &bt BT_CLR>,
                        <&macro_release &kp C_MUTE>;
-            tap-ms = <30>;
-            wait-ms = <40>;
+            tap-ms = <40>;
+            wait-ms = <30>;
         };
     };
 
