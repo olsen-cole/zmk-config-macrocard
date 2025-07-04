@@ -1,15 +1,11 @@
-#include <behaviors/rgbled_widget.dtsi>
-// #include <behaviors/smart_toggle.dtsi>
+#include <behaviors/smart_toggle.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     behaviors {
-        // bt: bt {
-        //     compatible = "zmk,behavior-bluetooth";
-        //     #binding-cells = <1>;
-        // };
         // Window switcher behavior using smart toggle
         win_switch: win_switch {
             compatible = "zmk,behavior-smart-toggle";
@@ -26,15 +22,16 @@
             ignored-key-positions = <3>; // Encoder switch position
         };
         
-        // Hold/tap behavior for encoder switch - tap for toggle off, hold for BT clear
-        enc_ht: enc_ht {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&bt BT_CLR>, <&kp ENTER>;
+        // Macro behavior for encoder switch - tap for toggle off, hold for BT clear
+        enc_macro: enc_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp ENTER,
+                       <&macro_tap &bt BT_CLR>,
+                       <&macro_release &kp ENTER>;
+            tap-ms = <30>;
+            wait-ms = <40>;
         };
-        
         // Window switcher encoder behavior
         win_enc: win_enc {
             compatible = "zmk,behavior-sensor-rotate";
@@ -54,19 +51,17 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Default";
             bindings = <
                 &mo 1           // Switch 1 - Window switcher layer
                 &mo 2           // Switch 2 - Tab switcher layer  
                 &mo 3           // Switch 3 - Zoom layer
-                &enc_ht 0 0     // Encoder switch - hold for BT clear
+                &enc_macro      // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         window_layer {
-            display-name = "Window";
             bindings = <
                 &trans          // Switch 1 - transparent
                 &trans          // Switch 2 - transparent
@@ -78,7 +73,6 @@
         };
 
         tab_layer {
-            display-name = "Tab";
             bindings = <
                 &trans          // Switch 1 - transparent
                 &trans          // Switch 2 - transparent
@@ -90,7 +84,6 @@
         };
 
         zoom_layer {
-            display-name = "Zoom";
             bindings = <
                 &trans          // Switch 1 - transparent
                 &trans          // Switch 2 - transparent
