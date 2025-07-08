@@ -1,5 +1,2 @@
-config SHIELD_MACROCARD_PRODUCTIVITY
-    def_bool $(shields_list_contains,macrocard_productivity)
-
-config SHIELD_MACROCARD_MUSIC
-    def_bool $(shields_list_contains,macrocard_music)
+config SHIELD_MACROCARD
+    def_bool $(shields_list_contains,macrocard)

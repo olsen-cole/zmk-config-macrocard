@@ -1,13 +1,6 @@
-if SHIELD_MACROCARD_PRODUCTIVITY
+if SHIELD_MACROCARD
 
 config ZMK_KEYBOARD_NAME
-    default "Macrocard Productivity"
+    default "Macrocard"
 
-endif # SHIELD_MACROCARD_PRODUCTIVITY
-
-if SHIELD_MACROCARD_MUSIC
-
-config ZMK_KEYBOARD_NAME
-    default "Macrocard Music"
-
-endif # SHIELD_MACROCARD_MUSIC
+endif # SHIELD_MACROCARD
