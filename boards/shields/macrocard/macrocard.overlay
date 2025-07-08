@@ -40,8 +40,9 @@
 
     center_encoder: encoder_center {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // Pin A on P1.04
-        b-gpios = <&gpio1 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // Pin B on P1.06
+        // Swap pins to invert rotation
+        a-gpios = <&gpio1 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // Pin A on P1.04
+        b-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // Pin B on P1.06
         steps = <80>;
         status = "okay";
     };
