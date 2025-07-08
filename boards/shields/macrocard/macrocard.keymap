@@ -47,7 +47,7 @@
             #binding-cells = <1>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&bt_clr>, <&kp>;
+            bindings = <&kp>, <&bt_clr>;
         };
         // bt_non: behavior_bt_non {
         //     compatible = "zmk,behavior-hold-tap";
@@ -106,7 +106,7 @@ window_layer {
                 &to WINDOW              // Switch 1 - Layer window
                 &none                   // Switch 2 - None
                 &to ZOOM                // Switch 3 - Layer zoom
-                &bt_ht none             // Encoder switch - toggle ctrl off
+                &bt_ht NONE             // Encoder switch - toggle ctrl off
             >;
             
             sensor-bindings = <&tab_enc>;
@@ -117,7 +117,7 @@ window_layer {
                 &to WINDOW              // Switch 1 - Layer window
                 &to TABL                // Switch 2 - Layer tab
                 &none                   // Switch 3 - None
-                &bt_ht none             // Encoder switch - hold for BT clear
+                &bt_ht NONE             // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
