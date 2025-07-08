@@ -23,7 +23,7 @@
         combo_ly_d {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&to DEFAULT>;
+            bindings = <&to WINDOW>;
         };
         combo_ly_m {
             timeout-ms = <50>;
