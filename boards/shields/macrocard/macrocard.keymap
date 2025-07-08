@@ -16,7 +16,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&kp &bt BT_CLR>;
+                = <&macro_tap &bt BT_CLR>;
         };
     };
     combos {
@@ -103,14 +103,15 @@
 
         zoom_layer {
             bindings = <
-                &to WINDOW      // Switch 1 - transparent
-                &to TAB         // Switch 2 - transparent
-                &none           // Switch 3 - transparent
-                &bt_ht none     // Encoder switch - hold for BT clear
+                &to WINDOW      // Switch 1 - Layer window
+                &to TAB         // Switch 2 - Layer tab
+                &none           // Switch 3 - None
+                &bt_ht NONE     // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
         };
+        
         music_layer {
             bindings = <
                 &kp C_PREV      // Switch 1 - Previous track
@@ -121,12 +122,16 @@
             
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
+        
         present_layer {
             bindings = <
-                // Add functionality here
+                &kp F5          // Switch 1 - Start presentation (F5)
+                &kp ESC         // Switch 2 - Exit presentation (ESC)
+                &kp B           // Switch 3 - Black screen toggle (B)
+                &bt_ht LC(LS(F5)) // Encoder switch - tap for presenter view, hold for BT clear
             >;
             
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT>; // Navigate slides
         };
     };
 };
