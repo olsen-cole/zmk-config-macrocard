@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define WINDOW  0
-#define TAB     1
+#define TABL    1
 #define ZOOM    2
 #define MUSIC   3
 #define PRESENT 4
@@ -81,7 +81,7 @@
         window_layer {
             bindings = <
                 &none           // Switch 1 - None
-                &to TAB         // Switch 2 - Layer tab
+                &to TABL        // Switch 2 - Layer tab
                 &to ZOOM        // Switch 3 - Layer zoom
                 &bt_ht LALT     // Encoder switch - toggle alt off
             >;
@@ -103,7 +103,7 @@
         zoom_layer {
             bindings = <
                 &to WINDOW      // Switch 1 - Layer window
-                &to TAB         // Switch 2 - Layer tab
+                &to TABL        // Switch 2 - Layer tab
                 &none           // Switch 3 - None
                 &bt_ht NONE     // Encoder switch - hold for BT clear
             >;
