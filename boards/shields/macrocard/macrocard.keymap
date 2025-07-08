@@ -46,7 +46,7 @@
         };
         bt_non: behavior_bt_non {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&bt_clr>, <&none>;
