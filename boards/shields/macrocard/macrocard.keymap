@@ -42,7 +42,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&bt_clr>;
+            bindings = <&bt_clr>, <&kp>;
         };
         // Window switcher behavior using smart toggle
         win_switch: win_switch {
@@ -108,7 +108,7 @@
                 &bt_ht F11 &bt_clr      // Encoder switch - hold for BT clear
             >;
             
-            sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
+            sensor-bindings = <&inc_dec_kp LC(MINUS) LC(EQUAL)>;
         };
         
         music_layer {
