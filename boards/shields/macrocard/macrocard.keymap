@@ -96,7 +96,7 @@ window_layer {
                 &none                   // Switch 1 - None
                 &to TABL                // Switch 2 - Layer tab
                 &to ZOOM                // Switch 3 - Layer zoom
-                &bt_none none &bt_clr   // Encoder switch - toggle alt off
+                &bt_none &none &bt_clr  // Encoder switch - toggle alt off
             >;
             
             sensor-bindings = <&win_enc>;
@@ -107,7 +107,7 @@ window_layer {
                 &to WINDOW              // Switch 1 - Layer window
                 &none                   // Switch 2 - None
                 &to ZOOM                // Switch 3 - Layer zoom
-                &bt_none none &bt_clr   // Encoder switch - toggle ctrl off
+                &bt_none &none &bt_clr  // Encoder switch - toggle ctrl off
             >;
             
             sensor-bindings = <&tab_enc>;
@@ -118,7 +118,7 @@ window_layer {
                 &to WINDOW              // Switch 1 - Layer window
                 &to TABL                // Switch 2 - Layer tab
                 &none                   // Switch 3 - None
-                &bt_none none &bt_clr   // Encoder switch - hold for BT clear
+                &bt_none &none &bt_clr  // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
