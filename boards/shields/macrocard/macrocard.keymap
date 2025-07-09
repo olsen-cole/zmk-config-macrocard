@@ -49,13 +49,14 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&bt_clr>;
         };
-        // bt_non: behavior_bt_non {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-preferred";
-        //     tapping-term-ms = <200>;
-        //     bindings = <&bt_clr>, <&none>;
-        // };
+        bt_none: behavior_bt_none {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&bt_clr>;
+        };
+
         // Window switcher behavior using smart toggle
         win_switch: win_switch {
             compatible = "zmk,behavior-smart-toggle";
@@ -95,7 +96,7 @@ window_layer {
                 &none                   // Switch 1 - None
                 &to TABL                // Switch 2 - Layer tab
                 &to ZOOM                // Switch 3 - Layer zoom
-                &bt_ht ENTER            // Encoder switch - toggle alt off
+                &bt_none                // Encoder switch - toggle alt off
             >;
             
             sensor-bindings = <&win_enc>;
@@ -106,7 +107,7 @@ window_layer {
                 &to WINDOW              // Switch 1 - Layer window
                 &none                   // Switch 2 - None
                 &to ZOOM                // Switch 3 - Layer zoom
-                &bt_ht NONE             // Encoder switch - toggle ctrl off
+                &bt_none                // Encoder switch - toggle ctrl off
             >;
             
             sensor-bindings = <&tab_enc>;
@@ -117,7 +118,7 @@ window_layer {
                 &to WINDOW              // Switch 1 - Layer window
                 &to TABL                // Switch 2 - Layer tab
                 &none                   // Switch 3 - None
-                &bt_ht NONE             // Encoder switch - hold for BT clear
+                &bt_none                // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
