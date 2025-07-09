@@ -65,7 +65,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&bt_clr>;
+            bindings = <&bt_clr>, <&kp>;
         };
 
         // Window switcher behavior using smart toggle
@@ -107,7 +107,7 @@ window_layer {
                 &none                           // Switch 1 - None
                 &to TABL                        // Switch 2 - Layer tab
                 &to ZOOM                        // Switch 3 - Layer zoom
-                &bt_ht &layer_window &bt_clr    // Encoder switch - toggle alt off
+                &bt_ht &bt_clr &layer_window    // Encoder switch - toggle alt off
             >;
             
             
@@ -119,7 +119,7 @@ window_layer {
                 &to WINDOW                      // Switch 1 - Layer window
                 &none                           // Switch 2 - None
                 &to ZOOM                        // Switch 3 - Layer zoom
-                &bt_ht &layer_tab &bt_clr       // Encoder switch - toggle ctrl off
+                &bt_ht &bt_clr &layer_tab       // Encoder switch - toggle ctrl off
             >;
             
             sensor-bindings = <&tab_enc>;
@@ -130,7 +130,7 @@ window_layer {
                 &to WINDOW                      // Switch 1 - Layer window
                 &to TABL                        // Switch 2 - Layer tab
                 &none                           // Switch 3 - None
-                &bt_ht &layer_zoom &bt_clr      // Encoder switch - hold for BT clear
+                &bt_ht &bt_clr &layer_zoom      // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
@@ -141,7 +141,7 @@ window_layer {
                 &kp C_PREV              // Switch 1 - Previous track
                 &kp C_PP                // Switch 2 - Play/Pause
                 &kp C_NEXT              // Switch 3 - Next track
-                &bt_ht C_MUTE &bt_clr   // Encoder switch - tap for mute, hold for BT clear
+                &bt_ht &bt_clr C_MUTE   // Encoder switch - tap for mute, hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -152,7 +152,7 @@ window_layer {
                 &kp F5                      // Switch 1 - Start presentation (F5)
                 &kp ESC                     // Switch 2 - Exit presentation (ESC)
                 &kp B                       // Switch 3 - Black screen toggle (B)
-                &bt_ht LC(LS(F5)) &bt_clr   // Encoder switch - tap for presenter view, hold for BT clear
+                &bt_ht &bt_clr LC(LS(F5))   // Encoder switch - tap for presenter view, hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>; // Navigate slides
