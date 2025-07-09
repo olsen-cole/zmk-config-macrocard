@@ -17,11 +17,23 @@
             bindings
                 = <&macro_tap &bt BT_CLR>;
         };
-        none_macro: none_macro {
+        layer_window: layer_window {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &none>;
+                = <&to WINDOW>;
+        };
+        layer_tab: layer_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to TABL>;
+        };
+        layer_zoom: layer_zoom {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to ZOOM>;
         };
     };
     combos {
@@ -102,7 +114,7 @@ window_layer {
                 &none                           // Switch 1 - None
                 &to TABL                        // Switch 2 - Layer tab
                 &to ZOOM                        // Switch 3 - Layer zoom
-                &bt_none &none_macro &bt_clr    // Encoder switch - toggle alt off
+                &bt_ht &layer_window &bt_clr    // Encoder switch - toggle alt off
             >;
             
             
@@ -114,7 +126,7 @@ window_layer {
                 &to WINDOW                      // Switch 1 - Layer window
                 &none                           // Switch 2 - None
                 &to ZOOM                        // Switch 3 - Layer zoom
-                &bt_none &none_macro &bt_clr    // Encoder switch - toggle ctrl off
+                &bt_none &layer_tab &bt_clr     // Encoder switch - toggle ctrl off
             >;
             
             sensor-bindings = <&tab_enc>;
@@ -125,7 +137,7 @@ window_layer {
                 &to WINDOW                      // Switch 1 - Layer window
                 &to TABL                        // Switch 2 - Layer tab
                 &none                           // Switch 3 - None
-                &bt_none &none_macro &bt_clr    // Encoder switch - hold for BT clear
+                &bt_none &layer_zoom &bt_clr    // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
