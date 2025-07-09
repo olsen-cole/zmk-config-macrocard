@@ -3,4 +3,6 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Pinning to V0.2, instead of main for compatibility
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.2
+    # uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
