@@ -23,24 +23,6 @@
             bindings
                 = <&macro_tap &none>;
         };
-        // layer_window: layer_window {
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings
-        //         = <&to WINDOW>;
-        // };
-        // layer_tab: layer_tab {
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings
-        //         = <&to TABL>;
-        // };
-        // layer_zoom: layer_zoom {
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     bindings
-        //         = <&to ZOOM>;
-        // };
     };
     combos {
         compatible = "zmk,combos";
@@ -80,27 +62,7 @@
             tapping-term-ms = <5000>;
             bindings = <&bt_clr>, <&none_macro>;
         };
-        // bt_w: behavior_bt_w {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-preferred";
-        //     tapping-term-ms = <5000>;
-        //     bindings = <&bt_clr>, <&layer_window>;
-        // };
-        // bt_t: behavior_bt_t {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-preferred";
-        //     tapping-term-ms = <5000>;
-        //     bindings = <&bt_clr>, <&layer_tab>;
-        // };
-        // bt_z: behavior_bt_z {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-preferred";
-        //     tapping-term-ms = <5000>;
-        //     bindings = <&bt_clr>, <&layer_zoom>;
-        // };
+
         // Window switcher behavior using smart toggle
         win_switch: win_switch {
             compatible = "zmk,behavior-smart-toggle";
