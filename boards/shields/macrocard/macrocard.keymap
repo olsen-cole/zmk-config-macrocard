@@ -73,13 +73,13 @@
             tapping-term-ms = <5000>;
             bindings = <&bt_clr>, <&kp>;
         };
-        // bt_n: behavior_bt_n {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-preferred";
-        //     tapping-term-ms = <5000>;
-        //     bindings = <&bt_clr>, <&none_macro>;
-        // };
+        bt_n: behavior_bt_n {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <5000>;
+            bindings = <&bt_clr>, <&none_macro>;
+        };
         // bt_w: behavior_bt_w {
         //     compatible = "zmk,behavior-hold-tap";
         //     #binding-cells = <2>;
@@ -135,10 +135,10 @@
 
         window_layer {
             bindings = <
-                &none                           // Switch 1 - None
-                &to TABL                        // Switch 2 - Layer tab
-                &to ZOOM                        // Switch 3 - Layer zoom
-                &bt_ht &bt_clr none             // Encoder switch - toggle alt off
+                &none                       // Switch 1 - None
+                &to TABL                    // Switch 2 - Layer tab
+                &to ZOOM                    // Switch 3 - Layer zoom
+                &bt_n &bt_clr &none_macro   // Encoder switch - toggle alt off
             >;
             
             sensor-bindings = <&win_enc>;
@@ -146,10 +146,10 @@
 
         tab_layer {
             bindings = <
-                &to WINDOW              // Switch 1 - Layer window
-                &none                   // Switch 2 - None
-                &to ZOOM                // Switch 3 - Layer zoom
-                &bt_ht &bt_clr none     // Encoder switch - toggle ctrl off
+                &to WINDOW                  // Switch 1 - Layer window
+                &none                       // Switch 2 - None
+                &to ZOOM                    // Switch 3 - Layer zoom
+                &bt_n &bt_clr &none_macro   // Encoder switch - toggle ctrl off
             >;
             
             sensor-bindings = <&tab_enc>;
@@ -157,10 +157,10 @@
 
         zoom_layer {
             bindings = <
-                &to WINDOW              // Switch 1 - Layer window
-                &to TABL                // Switch 2 - Layer tab
-                &none                   // Switch 3 - None
-                &bt_ht &bt_clr none     // Encoder switch - hold for BT clear
+                &to WINDOW                  // Switch 1 - Layer window
+                &to TABL                    // Switch 2 - Layer tab
+                &none                       // Switch 3 - None
+                &bt_n &bt_clr &none_macro   // Encoder switch - hold for BT clear
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
