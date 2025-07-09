@@ -67,13 +67,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&bt_clr>;
         };
-        bt_none: behavior_bt_none {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&none_macro>, <&bt_clr>;
-        };
 
         // Window switcher behavior using smart toggle
         win_switch: win_switch {
