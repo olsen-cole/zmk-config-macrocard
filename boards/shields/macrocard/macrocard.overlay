@@ -34,7 +34,7 @@
             <&gpio1 11  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 1 on P1.11
             <&gpio1 13  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 2 on P1.13
             <&gpio1 15  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Switch 3 on P1.15
-            <&gpio0 11  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,   // Encoder switch
+            <&gpio0 11  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;   // Encoder switch
     };
 
     center_encoder: encoder_center {
