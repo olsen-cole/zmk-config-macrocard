@@ -103,8 +103,6 @@
                 &to TABL                    // Switch 2 - Layer tab
                 &to ZOOM                    // Switch 3 - Layer zoom
                 &bt_n &bt_clr &none_macro   // Encoder switch - toggle alt off
-                &none
-                &none
             >;
             
             sensor-bindings = <&win_enc>;
@@ -116,8 +114,6 @@
                 &none                       // Switch 2 - None
                 &to ZOOM                    // Switch 3 - Layer zoom
                 &bt_n &bt_clr &none_macro   // Encoder switch - toggle ctrl off
-                &none
-                &none
             >;
             
             sensor-bindings = <&tab_enc>;
@@ -129,8 +125,6 @@
                 &to TABL                    // Switch 2 - Layer tab
                 &none                       // Switch 3 - None
                 &bt_n &bt_clr &none_macro   // Encoder switch - hold for BT clear
-                &none
-                &none
             >;
             
             sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
@@ -142,8 +136,6 @@
                 &kp C_PP                // Switch 2 - Play/Pause
                 &kp C_NEXT              // Switch 3 - Next track
                 &bt_ht &bt_clr C_MUTE   // Encoder switch - tap for mute, hold for BT clear
-                &none
-                &none
             >;
             
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -155,8 +147,6 @@
                 &kp ESC                     // Switch 2 - Exit presentation (ESC)
                 &kp B                       // Switch 3 - Black screen toggle (B)
                 &bt_ht &bt_clr LC(LS(F5))   // Encoder switch - tap for presenter view, hold for BT clear
-                &none
-                &none            
             >;
             
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>; // Navigate slides
