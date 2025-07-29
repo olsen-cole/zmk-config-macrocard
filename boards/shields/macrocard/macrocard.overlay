@@ -9,7 +9,7 @@
         led-blue = &led2;
     };
 
-    pwmleds {
+    rgbled: pwmleds {
         compatible = "pwm-leds";
         
         led0: led_0 {
