@@ -30,7 +30,7 @@
                 = <&macro_press     &kp LCTRL &kp LWIN>
                 , <&macro_tap       &kp LEFT>
                 , <&macro_release   &kp LCTRL &kp LWIN>;
-        }
+        };
         desktop_macro_right: desktop_macro_right {
             compatible = "zmk, behavior-macro";
             #binding-cells = <0>;
