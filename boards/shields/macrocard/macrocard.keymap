@@ -4,8 +4,8 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define WINDOW  0
-#define TABL    1
-#define ZOOM    2
+#define DESKTOP 1
+#define TABL    2
 #define MUSIC   3
 #define PRESENT 4
 
@@ -23,6 +23,22 @@
             bindings
                 = <&macro_tap &none>;
         };
+        desktop_macro_left: desktop_macro_left {
+            compatible = "zmk, behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press     &kp LCTRL &kp LWIN>
+                , <&macro_tap       &kp LEFT>
+                , <&macro_release   &kp LCTRL &kp LWIN>;
+        }
+        desktop_macro_right: desktop_macro_right {
+            compatible = "zmk, behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press     &kp LCTRL &kp LWIN>
+                , <&macro_tap       &kp RIGHT>
+                , <&macro_release   &kp LCTRL &kp LWIN>;
+        }
     };
     combos {
         compatible = "zmk,combos";
@@ -101,7 +117,7 @@
             bindings = <
                 &none                       // Switch 1 - None
                 &to TABL                    // Switch 2 - Layer tab
-                &to ZOOM                    // Switch 3 - Layer zoom
+                &to DESKTOP                 // Switch 3 - Layer zoom
                 &bt_n &bt_clr &none_macro   // Encoder switch - toggle alt off
                 &none
                 &none
@@ -109,21 +125,8 @@
             
             sensor-bindings = <&win_enc>;
         };
-
-        tab_layer {
-            bindings = <
-                &to WINDOW                  // Switch 1 - Layer window
-                &none                       // Switch 2 - None
-                &to ZOOM                    // Switch 3 - Layer zoom
-                &bt_n &bt_clr &none_macro   // Encoder switch - toggle ctrl off
-                &none
-                &none
-            >;
-            
-            sensor-bindings = <&tab_enc>;
-        };
-
-        zoom_layer {
+        
+        desktop_layer {
             bindings = <
                 &to WINDOW                  // Switch 1 - Layer window
                 &to TABL                    // Switch 2 - Layer tab
@@ -133,7 +136,20 @@
                 &none
             >;
             
-            sensor-bindings = <&inc_dec_kp LC(EQUAL) LC(MINUS)>;
+            sensor-bindings = <desktop_macro_right, desktop_macro_left>;
+        };
+
+        tab_layer {
+            bindings = <
+                &to WINDOW                  // Switch 1 - Layer window
+                &none                       // Switch 2 - None
+                &to DESKTOP                 // Switch 3 - Layer zoom
+                &bt_n &bt_clr &none_macro   // Encoder switch - toggle ctrl off
+                &none
+                &none
+            >;
+            
+            sensor-bindings = <&tab_enc>;
         };
         
         music_layer {
