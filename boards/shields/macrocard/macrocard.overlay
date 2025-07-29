@@ -64,6 +64,12 @@
     };
 };
 
+&pwm0 {
+    status = "okay";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-names = "default";
+};
+
 &center_encoder {
     status = "okay";
 };
