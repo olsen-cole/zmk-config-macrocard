@@ -1,7 +1,6 @@
 / {
     chosen {
         zmk,kscan = &default_kscan;
-        zephyr,pwm-leds = &pwm_leds;
     };
 
     aliases {
@@ -12,18 +11,17 @@
 
     pwm_leds: pwm_leds {
         compatible = "pwm-leds";
-        status = "okay";
         
         led0: led_0 {
-            pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+            pwms = <&pwm0 0 PWM_MSEC(10) PWM_POLARITY_NORMAL>;
         };
         
         led1: led_1 {
-            pwms = <&pwm0 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+            pwms = <&pwm0 1 PWM_MSEC(10) PWM_POLARITY_NORMAL>;
         };
         
         led2: led_2 {
-            pwms = <&pwm0 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+            pwms = <&pwm0 2 PWM_MSEC(10) PWM_POLARITY_NORMAL>;
         };
     };
 
