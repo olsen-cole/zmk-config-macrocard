@@ -1,7 +1,7 @@
 / {
     chosen {
         zmk,kscan = &default_kscan;
-        zmk,pwm_leds = pwm_leds;
+        zmk,pwm-leds = pwm_leds;
     };
 
     aliases {
