@@ -10,7 +10,7 @@
     };
 
     pwmleds {
-        compatible = "pwm-leds";
+        compatible = "pwmleds";
         status = "okay";
         
         led0: led_0 {
