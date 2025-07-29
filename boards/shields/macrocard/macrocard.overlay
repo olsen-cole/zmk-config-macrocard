@@ -1,6 +1,7 @@
 / {
     chosen {
         zmk,kscan = &default_kscan;
+        zmk,pwm-led = &pwmleds;
     };
 
     aliases {
@@ -9,8 +10,8 @@
         led-blue = &led2;
     };
 
-    pwmleds {
-        compatible = "pwmleds";
+    pwm_led: pwmleds {
+        compatible = "pwm-leds";
         status = "okay";
         
         led0: led_0 {
