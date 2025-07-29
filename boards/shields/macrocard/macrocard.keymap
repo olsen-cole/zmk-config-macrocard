@@ -23,22 +23,6 @@
             bindings
                 = <&macro_tap &none>;
         };
-        desktop_macro_left: desktop_macro_left {
-            compatible = "zmk, behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press     &kp LCTRL &kp LWIN>
-                , <&macro_tap       &kp LEFT>
-                , <&macro_release   &kp LCTRL &kp LWIN>;
-        };
-        desktop_macro_right: desktop_macro_right {
-            compatible = "zmk, behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press     &kp LCTRL &kp LWIN>
-                , <&macro_tap       &kp RIGHT>
-                , <&macro_release   &kp LCTRL &kp LWIN>;
-        };
     };
     combos {
         compatible = "zmk,combos";
@@ -136,7 +120,7 @@
                 &none
             >;
             
-            sensor-bindings = <&desktop_macro_right &desktop_macro_left>;
+            sensor-bindings = <&inc_dec_kp LC(LG(RIGHT)) LC(LG(LEFT))>;
         };
 
         tab_layer {
