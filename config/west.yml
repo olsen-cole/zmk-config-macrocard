@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: olsen-cole
+      url-base: https://github.com/olsen-cole
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -11,11 +13,11 @@ manifest:
       revision: v0.2
       # revision: main
       import: app/west.yml
-    - name: zmk-rgbled-widget
-      remote: caksoylar
-      revision: main
     - name: zmk-smart-toggle
       remote: caksoylar
+      revision: main
+    - name: zmk-rgbled-widget
+      remote: olsen-cole
       revision: main
   self:
     path: config
