@@ -10,7 +10,7 @@
         led-blue = &led2;
     };
 
-    pwm_led: pwmleds {
+    pwm_led: pwm_leds {
         compatible = "pwm-leds";
         status = "okay";
         
