@@ -1,7 +1,7 @@
 / {
     chosen {
         zmk,kscan = &default_kscan;
-        zmk,pwm-leds = &pwm_leds;
+        zephyr,pwm-leds = &pwm_leds;
     };
 
     aliases {
