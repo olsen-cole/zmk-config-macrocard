@@ -76,7 +76,8 @@
 &pwm0 {
     status = "okay";
     pinctrl-0 = <&pwm0_default>;
-    pinctrl-names = "default";
+    pinctrl-1 = <&pwm0_sleep>;
+    pinctrl-names = "default", "sleep";
 };
 
 &center_encoder {
