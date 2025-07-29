@@ -136,7 +136,7 @@
                 &none
             >;
             
-            sensor-bindings = <desktop_macro_right, desktop_macro_left>;
+            sensor-bindings = <&desktop_macro_right, &desktop_macro_left>;
         };
 
         tab_layer {
