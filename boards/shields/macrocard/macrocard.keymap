@@ -38,7 +38,7 @@
                 = <&macro_press     &kp LCTRL &kp LWIN>
                 , <&macro_tap       &kp RIGHT>
                 , <&macro_release   &kp LCTRL &kp LWIN>;
-        }
+        };
     };
     combos {
         compatible = "zmk,combos";
