@@ -9,9 +9,10 @@
         led-blue = &led2;
     };
 
-    pwm_leds: pwm_leds {
+    pwm_leds {
         compatible = "pwm-leds";
         status = "okay";
+        label = "PWM_LEDS";
         
         led0: led_0 {
             pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
