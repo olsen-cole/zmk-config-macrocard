@@ -100,8 +100,8 @@
         window_layer {
             bindings = <
                 &none                       // Switch 1 - None
-                &to TABL                    // Switch 2 - Layer tab
-                &to DESKTOP                 // Switch 3 - Layer zoom
+                &to DESKTOP                    // Switch 2 - Layer tab
+                &to TABL                 // Switch 3 - Layer zoom
                 &bt_n &bt_clr &none_macro   // Encoder switch - toggle alt off
                 &none
                 &none
@@ -113,8 +113,8 @@
         desktop_layer {
             bindings = <
                 &to WINDOW                  // Switch 1 - Layer window
-                &to TABL                    // Switch 2 - Layer tab
-                &none                       // Switch 3 - None
+                &to                         // Switch 2 - Layer tab
+                &none TABL                  // Switch 3 - None
                 &bt_n &bt_clr &none_macro   // Encoder switch - hold for BT clear
                 &none
                 &none
@@ -126,8 +126,8 @@
         tab_layer {
             bindings = <
                 &to WINDOW                  // Switch 1 - Layer window
-                &none                       // Switch 2 - None
-                &to DESKTOP                 // Switch 3 - Layer zoom
+                &none DESKTOP               // Switch 2 - None
+                &to                         // Switch 3 - Layer zoom
                 &bt_n &bt_clr &none_macro   // Encoder switch - toggle ctrl off
                 &none
                 &none
