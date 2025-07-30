@@ -11,12 +11,15 @@
 
 / {
     macros {
+        // Bluetooth clear macro
         bt_clr: bt_clr {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &bt BT_CLR>;
         };
+
+        // None key macro
         none_macro: none_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -26,21 +29,29 @@
     };
     combos {
         compatible = "zmk,combos";
+
+        // Productivity layer combo
         combo_ly_d {
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&to WINDOW>;
         };
+
+        // Music layer combo
         combo_ly_m {
             timeout-ms = <50>;
             key-positions = <1 2>;
             bindings = <&to MUSIC>;
         };
+
+        // Presentation layer combo
         combo_ly_p {
             timeout-ms = <50>;
             key-positions = <0 2>;
             bindings = <&to PRESENT>;
         };
+
+        // Bootloader combo
         combo_reset {
             timeout-ms = <50>;
             key-positions = <0 1 2 3>;
@@ -48,6 +59,7 @@
         };
     };
     behaviors {
+        // Bluetooth clear with keypress macro
         bt_ht: behavior_bt_ht {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -55,6 +67,8 @@
             tapping-term-ms = <5000>;
             bindings = <&bt_clr>, <&kp>;
         };
+
+        // Bluetooth clear with no keypress (&none exits smart toggle)
         bt_n: behavior_bt_n {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -63,7 +77,7 @@
             bindings = <&bt_clr>, <&none_macro>;
         };
 
-        // Window switcher behavior using smart toggle
+        // Window switcher behavior
         win_switch: win_switch {
             compatible = "zmk,behavior-smart-toggle";
             #binding-cells = <0>;
@@ -71,7 +85,7 @@
             ignored-key-positions = <4 5>;
         };
         
-        // Tab switcher behavior using smart toggle
+        // Tab switcher behavior
         tab_switch: tab_switch {
             compatible = "zmk,behavior-smart-toggle";
             #binding-cells = <0>;
@@ -79,7 +93,7 @@
             ignored-key-positions = <4 5>;
         };
 
-        // Window switcher encoder behavior
+        // Window switcher encoder behavior 
         win_enc: win_enc {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -138,10 +152,10 @@
         
         music_layer {
             bindings = <
-                &kp C_PREV              // Switch 1 - Previous track
-                &kp C_PP                // Switch 2 - Play/Pause
-                &kp C_NEXT              // Switch 3 - Next track
-                &bt_ht &bt_clr C_MUTE   // Encoder switch - tap for mute, hold for BT clear
+                &kp C_PREV                  // Switch 1 - Previous track
+                &kp C_PP                    // Switch 2 - Play/Pause
+                &kp C_NEXT                  // Switch 3 - Next track
+                &bt_ht &bt_clr C_MUTE       // Encoder switch - tap for mute, hold for BT clear
                 &none
                 &none
             >;
@@ -151,15 +165,15 @@
         
         present_layer {
             bindings = <
-                &kp F5                      // Switch 1 - Start presentation (F5)
-                &kp ESC                     // Switch 2 - Exit presentation (ESC)
-                &kp B                       // Switch 3 - Black screen toggle (B)
-                &bt_ht &bt_clr LC(LS(F5))   // Encoder switch - tap for presenter view, hold for BT clear
+                &kp F5                      // Switch 1 - Start presentation
+                &kp ESC                     // Switch 2 - Exit presentation
+                &kp B                       // Switch 3 - Black screen toggle
+                &bt_ht &bt_clr HOME         // Encoder switch - Tap to return to the first slide, hold for BT clear
                 &none
                 &none
             >;
             
-            sensor-bindings = <&inc_dec_kp RIGHT LEFT>; // Navigate slides
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
         };
     };
 };
