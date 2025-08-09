@@ -190,5 +190,6 @@
             >;
             
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
+        };
     };
 };
