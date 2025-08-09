@@ -32,7 +32,10 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&kp N1 ENTER>;
+                = <&macro_press &kp N1>
+                , <&macro_tap &kp ENTER>
+                , <&macro_release &kp N1>
+                ;
         };
     };
     combos {
