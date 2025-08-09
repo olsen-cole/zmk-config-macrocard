@@ -77,34 +77,50 @@
             bindings = <&bt_clr>, <&none_macro>;
         };
 
-        // Window switcher behavior
-        win_switch: win_switch {
+        // Window switcher behavior next
+        win_switch_n: win_switch_n {
             compatible = "zmk,behavior-smart-toggle";
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kp TAB>;
             ignored-key-positions = <4 5>;
         };
+
+        // Window switcher behavior previous
+        win_switch_p: win_switch_p {
+            compatible = "zmk,behavior-smart-toggle";
+            #binding-cells = <0>;
+            bindings = <&kp LALT>, <&kp LS(TAB)>;
+            ignored-key-positions = <4 5>;
+        };
         
-        // Tab switcher behavior
-        tab_switch: tab_switch {
+        // Window switcher encoder behavior 
+        win_enc: win_enc {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&win_switch_n>, <&win_switch_p>;
+        };  
+
+        // Tab switcher behavior next
+        tab_switch_n: tab_switch_n {
             compatible = "zmk,behavior-smart-toggle";
             #binding-cells = <0>;
             bindings = <&kp LCTRL>, <&kp TAB>;
             ignored-key-positions = <4 5>;
         };
 
-        // Window switcher encoder behavior 
-        win_enc: win_enc {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&win_switch>, <&kp LS(TAB)>;
+        // Tab switcher behavior previous
+        tab_switch_p: tab_switch_p {
+            compatible = "zmk,behavior-smart-toggle";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp LS(TAB)>;
+            ignored-key-positions = <4 5>;
         };
         
         // Tab switcher encoder behavior
         tab_enc: tab_enc {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&tab_switch>, <&kp LS(TAB)>;
+            bindings = <&tab_switch_n>, <&tab_switch_p>;
         };
     };
 
@@ -174,6 +190,5 @@
             >;
             
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
-        };
     };
 };

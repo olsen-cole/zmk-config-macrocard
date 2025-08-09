@@ -1,0 +1,203 @@
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/outputs.h>
+
+#define WINDOW  0
+#define DESKTOP 1
+#define TABL    2
+#define MUSIC   3
+#define PRESENT 4
+
+/ {
+    macros {
+        // Bluetooth clear macro
+        bt_clr: bt_clr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &bt BT_CLR>;
+        };
+
+        // None key macro
+        none_macro: none_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &none>;
+        };
+
+        // Return to first slide macro
+        fslide: fslide {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <N1 ENTER>;
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+
+        // Productivity layer combo
+        combo_ly_d {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&to WINDOW>;
+        };
+
+        // Music layer combo
+        combo_ly_m {
+            timeout-ms = <50>;
+            key-positions = <1 2>;
+            bindings = <&to MUSIC>;
+        };
+
+        // Presentation layer combo
+        combo_ly_p {
+            timeout-ms = <50>;
+            key-positions = <0 2>;
+            bindings = <&to PRESENT>;
+        };
+
+        // Bootloader combo
+        combo_reset {
+            timeout-ms = <50>;
+            key-positions = <0 1 2 3>;
+            bindings = <&bootloader>;
+        };
+    };
+    behaviors {
+        // Bluetooth clear with keypress macro
+        bt_ht: behavior_bt_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <5000>;
+            bindings = <&bt_clr>, <&kp>;
+        };
+
+        // Bluetooth clear with no keypress (&none exits smart toggle)
+        bt_n: behavior_bt_n {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <5000>;
+            bindings = <&bt_clr>, <&none_macro>;
+        };
+
+        // Window switcher behavior next
+        win_switch_n: win_switch_n {
+            compatible = "zmk,behavior-smart-toggle";
+            #binding-cells = <0>;
+            bindings = <&kp LCMD>, <&kp TAB>;
+            ignored-key-positions = <4 5>;
+        };
+
+        // Window switcher behavior previous
+        win_switch_p: win_switch_p {
+            compatible = "zmk,behavior-smart-toggle";
+            #binding-cells = <0>;
+            bindings = <&kp LCMD>, <&kp LS(TAB)>;
+            ignored-key-positions = <4 5>;
+        };
+        
+        // Window switcher encoder behavior 
+        win_enc: win_enc {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&win_switch_n>, <&win_switch_p>;
+        };
+        
+        // Tab switcher behavior next
+        tab_switch_n: tab_switch_n {
+            compatible = "zmk,behavior-smart-toggle";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp TAB>;
+            ignored-key-positions = <4 5>;
+        };
+        
+        // Tab switcher behavior previous
+        tab_switch_p: tab_switch_p {
+            compatible = "zmk,behavior-smart-toggle";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp LS(TAB)>;
+            ignored-key-positions = <4 5>;
+        };
+        
+        // Tab switcher encoder behavior
+        tab_enc: tab_enc {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&tab_switch_n>, <&tab_switch_p>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        window_layer {
+            bindings = <
+                &none                       // Switch 1 - None
+                &to DESKTOP                 // Switch 2 - Layer tab
+                &to TABL                    // Switch 3 - Layer zoom
+                &bt_n &bt_clr &none_macro   // Encoder switch - toggle alt off
+                &none
+                &none
+            >;
+            
+            sensor-bindings = <&win_enc>;
+        };
+        
+        desktop_layer {
+            bindings = <
+                &to WINDOW                  // Switch 1 - Layer window
+                &none                       // Switch 2 - Layer tab
+                &to TABL                    // Switch 3 - None
+                &bt_n &bt_clr &none_macro   // Encoder switch - hold for BT clear
+                &none
+                &none
+            >;
+            
+            sensor-bindings = <&inc_dec_kp LC(RIGHT) LC(LEFT)>;
+        };
+
+        tab_layer {
+            bindings = <
+                &to WINDOW                  // Switch 1 - Layer window
+                &to DESKTOP                 // Switch 2 - None
+                &none                       // Switch 3 - Layer zoom
+                &bt_n &bt_clr &none_macro   // Encoder switch - toggle ctrl off
+                &none
+                &none
+            >;
+            
+            sensor-bindings = <&tab_enc>;
+        };
+        
+        music_layer {
+            bindings = <
+                &kp C_PREV                  // Switch 1 - Previous track
+                &kp C_PP                    // Switch 2 - Play/Pause
+                &kp C_NEXT                  // Switch 3 - Next track
+                &bt_ht &bt_clr C_MUTE       // Encoder switch - tap for mute, hold for BT clear
+                &none
+                &none
+            >;
+            
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+        
+        present_layer {
+            bindings = <
+                &kp LG(LS(RETURN))          // Switch 1 - Start presentation
+                &kp ESC                     // Switch 2 - Exit presentation
+                &kp B                       // Switch 3 - Black screen toggle
+                &bt_ht &bt_clr &fslide      // Encoder switch - Tap to return to the first slide, hold for BT clear
+                &none
+                &none
+            >;
+            
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
+        };
+    };
+};

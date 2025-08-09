@@ -1,0 +1,9 @@
+file_format: "1"
+id: macrocard
+name: Macrocard
+type: shield
+url: https://github.com/olsen-cole/macrocard
+requires: [pro_micro]
+features:
+	- keys
+	- encoder

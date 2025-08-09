@@ -1,2 +1,5 @@
-config SHIELD_MACROCARD
-    def_bool $(shields_list_contains,macrocard)
+config SHIELD_MACROCARD_WIN
+    def_bool $(shields_list_contains,macrocard_win)
+
+config SHIELD_MACROCARD_MAC
+    def_bool $(shields_list_contains,macrocard_mac)

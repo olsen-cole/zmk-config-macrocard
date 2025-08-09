@@ -1,4 +1,4 @@
-if SHIELD_MACROCARD
+if SHIELD_MACROCARD_WIN || SHIELD_MACROCARD_MAC
 
 config ZMK_KEYBOARD_NAME
     default "Macrocard"
@@ -9,4 +9,4 @@ config PWM
 config LED_PWM
     default y
 
-endif # SHIELD_MACROCARD
+endif
