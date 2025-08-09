@@ -1,6 +1,6 @@
 file_format: "1"
-id: macrocard
-name: Macrocard
+id: macrocard_win
+name: Macrocard for Windows
 type: shield
 url: https://github.com/olsen-cole/macrocard
 requires: [pro_micro]
