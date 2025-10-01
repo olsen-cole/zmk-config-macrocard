@@ -23,8 +23,8 @@ include:
     shield: macrocard_win
     artifact-name: macrocard_win
   - board: nice_nano_v2
-    shield: macrocard_win_media
-    artifact-name: macrocard_win_media
+    shield: macrocard_media
+    artifact-name: macrocard_media
   - board: nice_nano_v2
     shield: macrocard_mac
     artifact-name: macrocard_mac
