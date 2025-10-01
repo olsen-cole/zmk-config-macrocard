@@ -3,10 +3,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/outputs.h>
 
-#define WINDOW  0
-#define DESKTOP 1
-#define TABL    2
-#define MEDIA   3
+#define MEDIA   0
+#define WINDOW  1
+#define DESKTOP 2
+#define TABL    3
 #define PRESENT 4
 
 / {
@@ -30,18 +30,18 @@
     combos {
         compatible = "zmk,combos";
 
-        // Productivity layer combo
-        combo_ly_d {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&to WINDOW>;
-        };
-
         // Media layer combo
         combo_ly_m {
             timeout-ms = <50>;
-            key-positions = <1 2>;
+            key-positions = <0 1>;
             bindings = <&to MEDIA>;
+        };
+
+        // Productivity layer combo
+        combo_ly_d {
+            timeout-ms = <50>;
+            key-positions = <1 2>;
+            bindings = <&to WINDOW>;
         };
 
         // Presentation layer combo
@@ -127,6 +127,19 @@
     keymap {
         compatible = "zmk,keymap";
 
+        media_layer {
+            bindings = <
+                &kp C_PREV                  // Switch 1 - Previous track
+                &kp C_PP                    // Switch 2 - Play/Pause
+                &kp C_NEXT                  // Switch 3 - Next track
+                &bt_ht &bt_clr C_MUTE       // Encoder switch - tap for mute, hold for BT clear
+                &none
+                &none
+            >;
+            
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+        
         window_layer {
             bindings = <
                 &none                       // Switch 1 - None
@@ -164,19 +177,6 @@
             >;
             
             sensor-bindings = <&tab_enc>;
-        };
-        
-        media_layer {
-            bindings = <
-                &kp C_PREV                  // Switch 1 - Previous track
-                &kp C_PP                    // Switch 2 - Play/Pause
-                &kp C_NEXT                  // Switch 3 - Next track
-                &bt_ht &bt_clr C_MUTE       // Encoder switch - tap for mute, hold for BT clear
-                &none
-                &none
-            >;
-            
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
         
         present_layer {

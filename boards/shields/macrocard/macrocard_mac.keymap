@@ -6,7 +6,7 @@
 #define WINDOW  0
 #define DESKTOP 1
 #define TABL    2
-#define MUSIC   3
+#define MEDIA   3
 #define PRESENT 4
 
 / {
@@ -48,11 +48,11 @@
             bindings = <&to WINDOW>;
         };
 
-        // Music layer combo
+        // Media layer combo
         combo_ly_m {
             timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&to MUSIC>;
+            bindings = <&to MEDIA>;
         };
 
         // Presentation layer combo
@@ -177,7 +177,7 @@
             sensor-bindings = <&tab_enc>;
         };
         
-        music_layer {
+        media_layer {
             bindings = <
                 &kp C_PREV                  // Switch 1 - Previous track
                 &kp C_PP                    // Switch 2 - Play/Pause
